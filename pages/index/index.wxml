@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="pg-hd">
+        <swiper class="hd-swiper" autoplay>
+            <swiper-item wx:for="{{images}}" wx:key="im{{index}}" class="swiper-item">
+                <image src="{{item}}" mode="aspectFill"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="pg-bd">
+        <view class="bd-filter {{isTop?'fixed':'normal'}}">
+            <view class="filter-segment">
+                <view wx:for="{{segmentTitles}}" wx:key="seg" class="segment-item">
+                    {{item}}
+                </view>
+            </view>
+        </view>
+        <view class="list-container {{isTop? 'holder-top-padding':''}}">
+            <view class="bd-list" wx:for="{{list_show}}" wx:key="list{{index}}" bindtap="onSelectCell">
+                <image class="list-img" src="{{item.image}}" mode="aspectFill"></image>
+                <view class="list-info">
+                    <view class="info-hd">
+                        <view class="name">{{item.name}}</view>
+                        <view class="time">{{item.time}} / {{item.position}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
